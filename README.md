@@ -2,6 +2,34 @@
 
 This application records a video stream from a USB Camera plug into a Raspberry Pi Model 3B using Raspbian OS.
 
+## Requirements
+
+- Python 3
+- Supervisor
+
+## Installation
+
+Git clone this repository:
+
+```
+git clone git@github.com:mreyk/recorder.git /opt/recorder
+```
+
+Install supervisor config file and reread information:
+
+```
+cp /opt/recorder/config/recorder.config /etc/supervisor/config.d/.
+supervisorctl reread
+supervisorctl update
+```
+
+Install logrotate configuration:
+
+```
+cp /opt/recorder/config/recorder /etc/logrotate.d/recorder
+logrotate /etc/logrotate.d/recorder
+```
+
 ## FFMPEG
 
 Useful FFMPEG commands:
